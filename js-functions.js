@@ -111,7 +111,129 @@ function map(someFunction, someArray) {
     return result;
     
 };
-map(calcSquare, anArrayOfGrades);
+//map(calcSquare, anArrayOfGrades);
+
+
+let i = 0;
+scores = [5,98,101,400];
+months = ['jan','feb','mar','apr'];
+
+do {
+    console.log(scores[i]);
+    i++;
+} while (i < scores.length);
+//rewriting the previous function now using do..while:
+
+
+function countTwoByTwo(numberChosen) {
+    let i = 0;
+    while (i <= numberChosen) {
+        if (i % 2 === 0 && i !== 0) {
+            console.log(i);
+        }
+        i++;
+    }};
+//countTwoByTwo(15);
+
+function countUneven(aNumber) {
+    let i = 1;
+    while (i <= aNumber) {
+        if (!(i % 2 === 0) && i !== 9) {
+            console.log(i);
+        }
+        i++;
+    }
+};
+//countUneven(30);
+
+// logs on the console every element on chosen array;
+
+/*for (item in scores, months) {
+    console.log(scores[item],'-', months[item]);
+}; */
+
+// examples/exercises below are from https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Functions
+function loop(y) {
+    if (y > 10) {
+        return;
+    }
+    console.log(loop(y+1));
+};
+
+function outside(valueOutside) {
+    function inside(valueInside) {
+        return valueInside - valueOutside;
+    }
+    return inside;
+};
+
+const fnInside = outside(1200);
+console.log(fnInside(2100));
+// more understable, because you only call the main function, passing the valueOutside then the valueInside
+console.log(outside(600)(2100));
+
+// outer function defines a variable called 'name'
+const pet = function (name) {
+    const getName = function () {
+        //now this inner function has access to the "name" varibale
+        // of the outer function
+        return name;
+    };
+    return getName;
+
+};
+
+const myPet = pet('Coquinho');
+console.log(myPet());
+
+
+const createPet = function (name) {
+    let sex;
+
+    const pet = {
+        setName(newName) {
+            name = newName;
+        },
+
+        setSex(newSex) {
+            if (
+                typeof newSex === "string" &&
+                (newSex.toLowerCase() === "male") 
+                || newSex.toLowerCase() === "female"
+            ) {sex = newSex;}
+        },
+
+        getName() {
+            return name;
+        },
+
+        getSex() {
+            return sex;
+        },
+    };
+    return pet;
+};
+
+const myNewPet = createPet('Coquinho');
+//console.log(myNewPet.getName());
+myNewPet.setName('Coquinhuu');
+myNewPet.setSex("MALE");
+console.log(myNewPet.getName() + '-' + myNewPet.getSex());
+
+//Using the arguments object. Example given was tweaked to not concatenate the separator in the last element of the given arguments.
+function concatSomeWords(separator, terminator) {
+    let result = '';
+    // index position now starts from 2 instead of 1, because the index 1 of the arguments 
+    //is now the value for the terminator, or the character(s) chosen when calling the function
+    // that will be shown at the end of the "string list" composed of all the arguments
+    for (let i = 2; i < arguments.length; i++) {
+        if (i !== arguments.length-1) {
+            result += arguments[i] + separator
+} else {result += arguments[i] + terminator}}
+    return result
+};
+
+console.log(concatSomeWords(', ','.', 'bread', 'cheese', 'tofu'));
 
 /*
 below are trials that didn't work for the intended result:
