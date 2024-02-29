@@ -235,6 +235,7 @@ function concatSomeWords(separator, terminator) {
 
 console.log(concatSomeWords(', ','.', 'bread', 'cheese', 'tofu'));
 
+
 /*
 below are trials that didn't work for the intended result:
 
