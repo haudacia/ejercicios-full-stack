@@ -188,27 +188,26 @@ console.log(myPet());
 
 
 const createPet = function (name) {
-    let sex;
+    let weight;
 
     const pet = {
         setName(newName) {
             name = newName;
         },
 
-        setSex(newSex) {
+        setWeight(newWeight) {
             if (
-                typeof newSex === "string" &&
-                (newSex.toLowerCase() === "male") 
-                || newSex.toLowerCase() === "female"
-            ) {sex = newSex;}
+                typeof newWeight === "number" &&
+                (newWeight < 5) 
+            ) {weight = newWeight;}
         },
 
         getName() {
             return name;
         },
 
-        getSex() {
-            return sex;
+        getWeight() {
+            return weight;
         },
     };
     return pet;
@@ -217,8 +216,8 @@ const createPet = function (name) {
 const myNewPet = createPet('Coquinho');
 //console.log(myNewPet.getName());
 myNewPet.setName('Coquinhuu');
-myNewPet.setSex("MALE");
-console.log(myNewPet.getName() + '-' + myNewPet.getSex());
+myNewPet.setWeight(2.4);
+console.log(myNewPet.getName() + '-' + myNewPet.getWeight());
 
 //Using the arguments object. Example given was tweaked to not concatenate the separator in the last element of the given arguments.
 function concatSomeWords(separator, terminator) {
@@ -235,7 +234,11 @@ function concatSomeWords(separator, terminator) {
 
 console.log(concatSomeWords(', ','.', 'bread', 'cheese', 'tofu'));
 
+const a = [3,2,7,1];
 
+const r = a.map(x => x * 2 - 1).reduce((x,y) => x+y, 0)
+
+console.log(r);
 /*
 below are trials that didn't work for the intended result:
 
