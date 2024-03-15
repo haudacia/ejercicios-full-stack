@@ -69,3 +69,16 @@ const exercisesNames = exercises.map(function(exercises) {
     console.log(exercises.exerciseName)
 });
 */
+
+const createExercise = (name, muscles, unilateral) => {
+    if (typeof(unilateral) == "boolean") {
+        return {
+        exerciseName: name,
+        targetedMuscles: muscles,
+        isUnilateral: unilateral,
+    }};
+};
+
+console.log(createExercise('bulgarian split squat', 'quads', true));
+
+/* exercises.isUnilateral.find(elem => (elem.unilateral)); */

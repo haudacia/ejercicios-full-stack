@@ -32,3 +32,5 @@ console.log(array2Uneven);
 const array3 = ['estuche', 'lapis', 'calcetines'];
 const array3Upper = array3.map((element) => { return element.toUpperCase() });
 console.log(array3Upper);
+console.log(array3.reduce((acc, current) => (acc += ' ' + current), 'Ínicio Frase'));
+
