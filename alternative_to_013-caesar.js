@@ -9,16 +9,19 @@ const caesar = function(rawString, v) {
             // reduces shift to essential value by dismissing times it has been wrapped around (with large numbers)
             let shift = v % alphabet.length;
             let shiftedIndex = ((characterIndex + shift) + alphabet.length) % alphabet.length;
-            console.log(shift, characterIndex, shiftedIndex);
+            // console.log(shift, characterIndex, shiftedIndex);
             /* checks if character exists within alphabet and maintains their property of either upper or lower case
             when returning coded leter */
             if (alphabet.includes(character)) {
                 strCaesar += alphabet[shiftedIndex];
             }
-            else if (alphabet.includes(character.toLowerCase() && character === character.toUpperCase())) {
+            else if (
+                alphabet.includes(character.toLowerCase()) 
+                && character === character.toUpperCase()) {
                 strCaesar += (alphabet[shiftedIndex]).toUpperCase();
-            } else 
-                strCaesar += character; console.log('non alphabetic character detected'); 
+            } else if (characterIndex === -1) {
+                strCaesar += character; //console.log('non alphabetic character detected');
+            } 
         } 
     } else console.log('This is not a string');
 console.log(strCaesar);
@@ -26,3 +29,4 @@ return strCaesar
 };
 
 caesar('Hello, World!', 5);
+// alt 2 (statements more )
