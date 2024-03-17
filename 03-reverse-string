@@ -1,0 +1,18 @@
+const reverseString = function(aString) {
+    let stringReverse = '';
+
+    for (let i = 0; i < aString.length; i++) {
+        stringReverse += aString[i];
+        console.log(stringReverse);
+      };
+      let count = aString.length-1
+      while (count >= 0) {
+        stringReverse += aString[count];
+        slots --;
+      }; 
+    console.log(slots)
+    return stringReverse;   
+};
+reverseString('hello there');
+// Do not edit below this line
+module.exports = reverseString;

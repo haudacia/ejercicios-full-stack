@@ -13,7 +13,6 @@ console.log(repeatString('hey', 3));
         console.log(itemIndex);
     }
 };*/
-
 const removeFromArray = function(array, ...arg) {
     for (let i=0;i<= arg.length;i++) {
         const itemIndex = array.indexOf(arg[i]);
