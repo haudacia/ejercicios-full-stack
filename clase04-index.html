@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script src="./script.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manipulating DOM</title>
+</head>
+<body onclick="colorButton()">
+    <h1 class="doc-title">heading</h1>
+    <button id="dialog-button" onclick="showDialog()">open dialog</button>
+    <dialog id="exercise-dialog">
+        <form method="dialog">
+            <input type="text" name="exercise-name" id="exercise-name"></input>
+        </form>
+
+    </dialog>
+    <div id="counter-message">
+         <p>you clicked</p><p class="counter-text">0 times</p>
+        <button id="click-button">click to count</button>
+        <button class="colored-button">red</button>
+        <button class="colored-button">blue</button>
+        <button class="colored-button">magenta</button>
+        <button class="colored-button">purple</button>
+        <button class="colored-button">GRAy</button>
+        <button class="colored-button">Yellow</button>
+    </div>
+</body>
+</html>
