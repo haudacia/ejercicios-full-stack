@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <script src="./script.js"></script>
+    <script src="./clase04-script.js"></script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Manipulating DOM</title>
@@ -10,8 +10,10 @@
     <h1 class="doc-title">heading</h1>
     <button id="dialog-button" onclick="showDialog()">open dialog</button>
     <dialog id="exercise-dialog">
+        <label for="exercise-name">exercise performed:</label>
         <form method="dialog">
-            <input type="text" name="exercise-name" id="exercise-name"></input>
+            <input type="text" name="username" id="username-input">
+            <button type="submit" id="submit-username" onclick="submitUsername()">Submit</button>
         </form>
 
     </dialog>
@@ -22,8 +24,6 @@
         <button class="colored-button">blue</button>
         <button class="colored-button">magenta</button>
         <button class="colored-button">purple</button>
-        <button class="colored-button">GRAy</button>
-        <button class="colored-button">Yellow</button>
     </div>
 </body>
 </html>

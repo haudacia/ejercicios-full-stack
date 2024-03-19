@@ -30,11 +30,23 @@ const colorButton = () => {
     });
 };
 
+
 const showDialog = () => {
     const dialog = document.querySelector('#exercise-dialog');
     let dialogButton = document.getElementById('dialog-button');
-    dialogButton.addEventListener("click", dialog.show())
+    dialogButton.addEventListener("click", dialog.showModal())
+};
+listUsers = [];
+const storeUserName = () => {
+    let inputUsername = document.getElementById('username-input').value;
+    listUsers.push(inputUsername);
+    console.log(listUsers);
 }
+const submitUsername = () => {
+    const submitButton = document.querySelector('#submit-username');
+    submitButton.addEventListener('click', storeUserName)
+};
+
 
 /*const clickMe = () => {
     const containerDiv = document.querySelector('.container');
