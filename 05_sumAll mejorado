@@ -1,0 +1,15 @@
+const sumAll = function(numA, numB) {
+    if (typeof (numA && numB) === "number" && (numA && numB) >= 0) {
+      let highestNum = Math.max(numA, numB);
+      let lowestNum = Math.min(numA, numB);
+      let sum = 0;
+      for (let i = lowestNum; i <= highestNum; i++) {
+        sum += i;
+      } return sum;
+    } else
+    return 'ERROR';
+};
+
+console.log(sumAll(12, 10));
+// Do not edit below this line
+module.exports = sumAll;

@@ -41,11 +41,30 @@ const storeUserName = () => {
     let inputUsername = document.getElementById('username-input').value;
     listUsers.push(inputUsername);
     console.log(listUsers);
-}
+    let listOfUsers = document.querySelector("#list-users");
+    listUsers.forEach((user) => {
+    const listItem = document.createElement('li');
+    listItem.innerText = user;
+    listOfUsers.appendChild(listItem)
+    });
+};
+    // correct it: it appends all items again and againminstead of only the new ones added.
+
 const submitUsername = () => {
     const submitButton = document.querySelector('#submit-username');
-    submitButton.addEventListener('click', storeUserName)
+    submitButton.addEventListener('click', storeUserName);
+    // also works by pressing Enter
+    if (KeyboardEvent.code === 'Enter') { //or ===13
+        document.addEventListener('keydown', storeUserName)
+    }
+    //test to see how keyboard codes work
+    else if 
+        (KeyboardEvent.code === 'Escape') {
+            console.log('closed dialog');
+        }
 };
+     
+
 
 
 /*const clickMe = () => {
