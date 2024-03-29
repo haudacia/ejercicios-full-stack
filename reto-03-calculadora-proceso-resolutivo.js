@@ -1,92 +1,103 @@
-let memory = [];
-let operationsExecuted = [];
 let rawInput = [];
-const display = document.querySelector("#display");
+const display = document.querySelector("#on-display");
 const buttons = document.querySelectorAll("button");
-let eventIndex = -1;
+const currentOperation = document.querySelector("#current-operation");
+let result;
 let onDisplay = '';
-// this whole code is what i was thinking before realizing all it takes is  a numeric variable to store the current result
-let accResult = 0;
-
+let lastOperator = '';
 const clicked = (event) => {
     const content = event.target.innerText;
     const buttonType = event.target.className;
     const buttonId = event.target.id;
-    console.log(event.target.className)
-;
-    if (buttonType === ("number"|| "radixPoint")) {
+    
+    const displayUpdate = () => {
         onDisplay += content;
-        console.log(onDisplay);
-        console.log(eventIndex);
         display.innerText = onDisplay;
-        }
+    }
+
+    if (buttonType === "number") {
+        if (typeof(rawInput[rawInput.length-1]) !== 'number') {
+            onDisplay = '';
+        };
+        displayUpdate();
+        rawInput.push(Number(onDisplay));
+    }
+    if (buttonType === "radixPoint") {
+        displayUpdate();
+    }
 
     if (buttonType === "math-operation") {
-        memory.push(Number(onDisplay));
         rawInput.push(Number(onDisplay));
-        rawInput.push(content);
-        operationsExecuted.push(content);
-        console.log(memory);
+        operandA = Number(onDisplay);
+        lastOperator = buttonId;
+
+        if (rawInput[rawInput.length-1] === 0) {
+            rawInput.pop();
+            rawInput.pop();
+        };
+        rawInput.push(buttonId);
+        console.log(rawInput);
         onDisplay = '';
-        console.log(operationsExecuted)
+        currentOperation.innerText = content;
+
+
     }
-    if (buttonId === "op-sum") {
-        // first, check if previous button clicked was a number
-        // or another operator. if operator, replace it with the
-        // most recently clicked operator.
-        rawIput
-        const sumAll = memory.reduce((acc, current) =>
-        acc + current
-        );
-        display.innerText = sumAll;
-    }
-
-// 29.03
-
-
-
-
-
     if (buttonId === "allClear") {
-        memory = [];
+        operandA = 0;
+        rawInput = [];
         display.innerText = '';
+        currentOperation.innerText = '';
     }
+    let operandB = Number(onDisplay);
+    let op = rawInput[rawInput.length-2]; //trocar porlet op = currentOperation.innerText;
+    
     if (buttonId === "equal") {
-        display.innerText = '';
+        lastOperator = buttonId;
+        console.log(operandA, op, operandB);
+        console.log(rawInput);
+        calc(operandA, rawInput[rawInput.length-2],Number(onDisplay));
+        if (lastOperator !== '') {
+            calc(operandA, rawInput[rawInput.length-2],Number(onDisplay));
+            pressedEqualButton = true;
+            lastOperator = '';
+            }
     }
+
+    const handleOperators = () => {
+
+    }}
+;
+
     //else if (button)
 //} else if (buttonType === "math-operation") {
     
-}
-    ;
-const calcSum = () => {
-    
-    buttons.forEach((button) => {
-        const buttonText = button.innerText;
-        //const resultText = readyToCalculate.push()
-        
-        }
-        // perform operation with stored values within
-        // readyToCalculate
-    );  
-    
+
+const calc = (operandA, op, operandB) => {
+    if (op === 'op-sum') {
+        result = operandA + operandB;
+    }
+    else if (op === "op-subtraction") {
+        result = operandA - operandB
+    }
+    else if (op === 'op-times') {
+        result = operandA * operandB
+    }
+    else if (op === "op-division") {
+        result = operandA / operandB
+    }
+    else if (op === "op-remainder") {
+        result = operandA % operandB
+    }
+    operandA = result;
+    display.innerText = result;
+
+    return operandA
 };
+
+
 const onLoad = () => {
     buttons.forEach((button) => {
         button.addEventListener('click', clicked)
         }
     );    
-};
-
-
-
-/*const showOperations = () => {
-   // const result = ??
-    const display = document.querySelector("#display");
-    resultText.innerText(result);
-    display.appendChild(resultText);
-
-
-
 }
-*/
