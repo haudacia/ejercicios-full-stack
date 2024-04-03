@@ -1,0 +1,23 @@
+// this was not the solution ive commited, but i wanted to store here the more concise 
+// solution with recursive that i found out with marcus and chatgpt
+
+const fibonacci = function(index, a = 0, b = 1) {
+    // Base case: If the index is 0, return the first Fibonacci number 'a'
+    if (index === 0) {
+        return a;
+    }
+
+    // Base case: If the index is 1, return the second Fibonacci number 'b'
+    if (index === 1) {
+        return b;
+    }
+
+    // Recursive case: Calculate the next Fibonacci number and call the function recursively
+    return fibonacci(index - 1, b, a + b);
+};
+
+// Test the function
+console.log(fibonacci(2)); // Output: 8
+
+// Do not edit below this line
+module.exports = fibonacci;
